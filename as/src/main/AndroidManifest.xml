@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.trikset.gamepad"
+    android:versionCode="33"
+    android:versionName="1.25">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"  tools:node="remove" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"  tools:node="remove" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"  tools:node="remove" />
+<!--  <uses-permission android:name="android.permission.VIBRATE" /> -->
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/trik_gamepad_logo_512x512"
+        android:label="@string/appLabel"
+        android:theme="@style/AppTheme">
+       <!--  <service android:name=".SenderService" />  -->
+
+       <activity
+            android:name="com.trikset.gamepad.MainActivity"
+            android:label="@string/appLabel">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.trikset.gamepad.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+    </application>
+
+</manifest>
