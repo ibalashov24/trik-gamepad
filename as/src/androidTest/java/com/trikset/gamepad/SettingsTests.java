@@ -771,19 +771,19 @@ public class SettingsTests {
 
         assertEquals(
                 "127.0.0.1",
-                preferences.getString(SettingsFragment.SK_HOST_ADDRESS, ""));
+                preferences.getString(SettingsFragment.Companion.getSK_HOST_ADDRESS(), ""));
         assertEquals(
                 "12345",
-                preferences.getString(SettingsFragment.SK_HOST_PORT, ""));
+                preferences.getString(SettingsFragment.Companion.getSK_HOST_PORT(), ""));
         assertEquals(
                 "50",
-                preferences.getString(SettingsFragment.SK_SHOW_PADS, ""));
+                preferences.getString(SettingsFragment.Companion.getSK_SHOW_PADS(), ""));
         assertEquals(
                 "5",
-                preferences.getString(SettingsFragment.SK_WHEEL_STEP, ""));
+                preferences.getString(SettingsFragment.Companion.getSK_WHEEL_STEP(), ""));
         assertEquals(
                 "3000",
-                preferences.getString(SettingsFragment.SK_KEEPALIVE, ""));
+                preferences.getString(SettingsFragment.Companion.getSK_KEEPALIVE(), ""));
      /*   assertEquals(
                 "http://localhost:8080/?action=stream",
                 preferences.getString(SettingsFragment.SK_VIDEO_URI, ""));*/

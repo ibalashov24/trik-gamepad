@@ -62,12 +62,12 @@ public class MainWindowTests {
                     PreferenceManager.getDefaultSharedPreferences(mActivityTestRule.getActivity());
             SharedPreferences.Editor preferenceEditor = preferences.edit();
 
-            preferenceEditor.putString(SettingsFragment.SK_HOST_ADDRESS, DummyServer.IP);
+            preferenceEditor.putString(SettingsFragment.Companion.getSK_HOST_ADDRESS(), DummyServer.IP);
             preferenceEditor.putString(
-                    SettingsFragment.SK_HOST_PORT,
+                    SettingsFragment.Companion.getSK_HOST_PORT(),
                     Integer.toString(DummyServer.DEFAULT_PORT));
             // In order not to receive keep-alive messages
-            preferenceEditor.putString(SettingsFragment.SK_KEEPALIVE, "100000000");
+            preferenceEditor.putString(SettingsFragment.Companion.getSK_KEEPALIVE(), "100000000");
 
             preferenceEditor.commit();
         }
@@ -232,12 +232,12 @@ public class MainWindowTests {
                     PreferenceManager.getDefaultSharedPreferences(mActivityTestRule.getActivity());
             SharedPreferences.Editor preferenceEditor = preferences.edit();
 
-            preferenceEditor.putString(SettingsFragment.SK_HOST_ADDRESS, DummyServer.IP);
+            preferenceEditor.putString(SettingsFragment.Companion.getSK_HOST_ADDRESS(), DummyServer.IP);
             preferenceEditor.putString(
-                    SettingsFragment.SK_HOST_PORT,
+                    SettingsFragment.Companion.getSK_HOST_PORT(),
                     Integer.toString(DummyServer.DEFAULT_PORT));
             // In order not to receive keep-alive messages
-            preferenceEditor.putString(SettingsFragment.SK_KEEPALIVE, "100000000");
+            preferenceEditor.putString(SettingsFragment.Companion.getSK_KEEPALIVE(), "100000000");
 
             preferenceEditor.commit();
         }
