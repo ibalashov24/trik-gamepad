@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuItemCompat
 import com.demo.mjpeg.MjpegView
 import com.trikset.gamepad.MainActivity
+import com.trikset.gamepad.SenderService.OnEventListener
 import java.net.MalformedURLException
 import java.net.URI
 import java.net.URISyntaxException
@@ -85,17 +86,16 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         mVideo = findViewById(R.id.video)
         recreateMagicButtons(5)
         run {
-            senderService!!.setOnDisconnectedListener(object : SenderService.OnEventListener<String?> {
-                override fun onEvent(arg: String?) {
+            senderService!!.onDisconnectedListener = object : OnEventListener<String> {
+                override fun onEvent(arg: String) {
                     toast("Disconnected.$arg")
                 }
-            })
-            senderService!!.setShowTextCallback(object : SenderService.OnEventListener<String?> {
-                override fun onEvent(arg: String?) {
-                    if (arg != null)
-                        toast(arg)
+            }
+            senderService!!.showTextCallback = object : OnEventListener<String> {
+                override fun onEvent(arg: String) {
+                    toast(arg)
                 }
-            })
+            }
         }
         run {
             val btnSettings = findViewById<Button>(R.id.btnSettings)
@@ -395,8 +395,8 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         pad2?.setSender(null)
         PreferenceManager.getDefaultSharedPreferences(baseContext)
                 .unregisterOnSharedPreferenceChangeListener(mSharedPreferencesListener)
-        senderService!!.setOnDisconnectedListener(null)
-        senderService!!.setShowTextCallback(null)
+        senderService!!.onDisconnectedListener = null
+        senderService!!.showTextCallback = null
         senderService = null
         hideRunnable = null
         super.onDestroy()
