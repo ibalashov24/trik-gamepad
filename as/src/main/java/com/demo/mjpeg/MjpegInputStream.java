@@ -1,11 +1,10 @@
 // http://stackoverflow.com/questions/10550139/android-ics-and-mjpeg-using-asynctask
 package com.demo.mjpeg;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.util.Log;
 
-import org.apache.commons.io.input.BoundedInputStream;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
@@ -14,6 +13,8 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.Properties;
+
+import org.apache.commons.io.input.BoundedInputStream;
 
 public class MjpegInputStream extends DataInputStream {
     private static final String TAG = "MjpegInputStream";
