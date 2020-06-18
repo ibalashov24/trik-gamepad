@@ -64,14 +64,19 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         // TODO Auto-generated method stub
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-        //supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        super.onCreate(savedInstanceState)
+    protected fun setWindowParams() {
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        @Suppress("DEPRECATION")
+        this.window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_main)
-        hideRunnable = HideRunnable()
         setSystemUiVisibility(false)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
         run {
             val a = supportActionBar
             if (a != null) {
@@ -270,7 +275,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
                 mVideo!!.removeCallbacks(mRestartCallback)
             }
             mRestartCallback = Runnable {
-                StartReadMjpegAsync(mVideo).execute(mVideoURL)
+                StartReadMjpegAsync(mVideo!!).execute(mVideoURL)
                 if (mRestartCallback != null && mVideo != null) // drop HTTP connection and restart
                     mVideo!!.postDelayed(mRestartCallback, 30000)
             }

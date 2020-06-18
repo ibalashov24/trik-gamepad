@@ -19,7 +19,9 @@
 
        <activity
             android:name="com.trikset.gamepad.MainActivity"
-            android:label="@string/appLabel">
+            android:label="@string/appLabel"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
