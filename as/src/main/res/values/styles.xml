@@ -18,6 +18,10 @@
         <item name="windowActionBarOverlay">true</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    
+
+    <!-- Fullscreen application theme. -->
+    <style name="AppTheme.FullScreen" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+    </style>
     
 </resources>

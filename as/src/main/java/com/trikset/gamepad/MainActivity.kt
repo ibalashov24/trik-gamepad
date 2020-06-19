@@ -64,18 +64,14 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         // TODO Auto-generated method stub
     }
 
-    protected fun setWindowParams() {
-        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-        @Suppress("DEPRECATION")
-        this.window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        setContentView(R.layout.activity_main)
-        setSystemUiVisibility(false)
+    protected fun setDisplayParameters() {
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.activity_main)
 
         run {
             val a = supportActionBar
